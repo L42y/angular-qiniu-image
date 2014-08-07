@@ -1,5 +1,6 @@
 angular.module('l42y.qiniu.image', [
-]).directive('qiniuImage', function () {
+]).directive('qiniuImage', function (
+) {
   var ctrlAs = 'qiniu';
 
   return {

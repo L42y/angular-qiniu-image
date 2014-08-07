@@ -6,7 +6,7 @@
 
 2. including script file provided by this component into your application
 
-3. adding `l42y.qiniu.image` as a module dependency into your application
+3. adding `l42y.qiniu.image` as a module dependency to your application
 
 ## License
 

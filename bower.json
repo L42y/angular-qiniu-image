@@ -1,0 +1,23 @@
+{
+  "name": "angular-qiniu-image",
+  "main": "angular-qiniu-image.js",
+  "version": "0.1.0",
+  "authors": [
+    "L42y <423300@gmail.com>"
+  ],
+  "description": "Base component for Qiniu image processing components",
+  "keywords": [
+    "angular",
+    "qiniu",
+    "image"
+  ],
+  "license": "WTFPL",
+  "homepage": "https://github.com/L42y/angular-qiniu-image",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

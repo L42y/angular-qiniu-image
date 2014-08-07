@@ -10,9 +10,11 @@ angular.module('l42y.qiniu.image', [
       $scope.$watchCollection(ctrlAs + '.fops', function (fops) {
         $attrs.$observe('qiniuImage', function (imageSrc) {
           if (imageSrc) {
-            var queryString = '?';
+            var queryString = '';
             angular.forEach(fops, function (fop) {
-              queryString += fop;
+              queryString += (fops.indexOf(fop) === 0
+                              ? '?'
+                              : '|') + fop;
             });
 
             $attrs.$set('src', imageSrc + queryString);

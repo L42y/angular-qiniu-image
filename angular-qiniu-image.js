@@ -6,7 +6,7 @@ angular.module('l42y.qiniu.image', [
   return {
     restrict: 'EA',
     controller: function ($scope, $element, $attrs) {
-      this.fops = [];
+      this.fops = {};
       var deregister;
 
       $attrs.$observe('qiniuImage', function (imageSrc, oldSrc) {
@@ -16,10 +16,10 @@ angular.module('l42y.qiniu.image', [
           deregister = $scope.$watchCollection(ctrlAs + '.fops', function (
             fops
           ) {
-            if (fops.length) {
+            if (Object.keys(fops).length) {
               var queryString = '';
-              angular.forEach(fops, function (fop) {
-                queryString += (fops.indexOf(fop) === 0
+              angular.forEach(fops, function (fop, identifier) {
+                queryString += (Object.keys(fops)[0] === identifier
                                 ? '?'
                                 : '|') + fop;
               });

@@ -7,20 +7,27 @@ angular.module('l42y.qiniu.image', [
     restrict: 'EA',
     controller: function ($scope, $element, $attrs) {
       this.fops = [];
+      var deregister;
 
-      $scope.$watchCollection(ctrlAs + '.fops', function (fops) {
-        $attrs.$observe('qiniuImage', function (imageSrc) {
-          if (imageSrc) {
-            var queryString = '';
-            angular.forEach(fops, function (fop) {
-              queryString += (fops.indexOf(fop) === 0
-                              ? '?'
-                              : '|') + fop;
-            });
+      $attrs.$observe('qiniuImage', function (imageSrc, oldSrc) {
+        if (imageSrc !== oldSrc) {
+          if (deregister) deregister();
 
-            $attrs.$set('src', imageSrc + queryString);
-          }
-        });
+          deregister = $scope.$watchCollection(ctrlAs + '.fops', function (
+            fops
+          ) {
+            if (fops.length) {
+              var queryString = '';
+              angular.forEach(fops, function (fop) {
+                queryString += (fops.indexOf(fop) === 0
+                                ? '?'
+                                : '|') + fop;
+              });
+
+              $attrs.$set('src', imageSrc + queryString);
+            }
+          });
+        }
       });
     },
     controllerAs: ctrlAs

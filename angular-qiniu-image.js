@@ -24,7 +24,17 @@ angular.module('l42y.qiniu.image', [
                                 : '|') + fop;
               });
 
-              $attrs.$set('src', imageSrc + queryString);
+              var imgUrl = imageSrc + queryString;
+              if ($element[0].nodeName.toLowerCase() === 'img') {
+                $attrs.$set('src', imgUrl);
+              } else {
+                $element.css({
+                  'width': $attrs.width,
+                  'height': $attrs.height,
+                  'background-size': '100% 100%',
+                  'background-image': 'url("' + imgUrl + '")'
+                });
+              }
             }
           });
         }

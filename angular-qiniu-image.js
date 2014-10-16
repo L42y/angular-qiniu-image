@@ -31,7 +31,6 @@ angular.module('l42y.qiniu.image', [
                 $element.css({
                   'width': $attrs.width,
                   'height': $attrs.height,
-                  'background-size': '100% 100%',
                   'background-image': 'url("' + imgUrl + '")'
                 });
               }

@@ -4,6 +4,7 @@ angular.module('l42y.qiniu.image', [
   var ctrlAs = 'qiniu';
 
   return {
+    scope: true,
     restrict: 'EA',
     controller: function ($scope, $element, $attrs) {
       this.fops = {};
